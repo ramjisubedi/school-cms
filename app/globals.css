@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Halfway for seamless loop with duplicated content */
+  }
+}
+
+/* Customize scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Customize scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* For dark mode, you might want to adjust colors */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #666;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+  
+  * {
+    scrollbar-color: #666 #1a1a1a;
+  }
+}
+
+.tox-tinymce-aux {
+  z-index: 99999 !important;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 233 57% 17%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 233 57% 17%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --chart-1: 220 70% 50%;
+    --chart-5: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-2: 340 75% 55%;
+}
+ 
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 350 73% 40%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 350 73% 40%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+ck-content > blockquote,
+.ck-content > dl,
+.ck-content > dd,
+.ck-content > h1,
+.ck-content > h2,
+.ck-content > h3,
+.ck-content > h4,
+.ck-content > h5,
+.ck-content > h6,
+.ck-content > hr,
+.ck-content > figure,
+.ck-content > p,
+.ck-content > pre {
+  margin: revert;
+}
+
+.ck-content > ol,
+.ck-content > ul {
+  list-style: revert;
+  margin: revert;
+  padding: revert;
+}
+
+.ck-content > table {
+  border-collapse: revert;
+}
+
+.ck-content > h1,
+.ck-content > h2,
+.ck-content > h3,
+.ck-content > h4,
+.ck-content > h5,
+.ck-content > h6 {
+  font-size: revert;
+  font-weight: revert;
+}
+
+/* table {
+  border-collapse: revert;
+}
+ol,
+ul,
+li {
+  list-style: revert;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+p {
+  font-size: revert;
+  font-weight: revert; */
+  /* margin: revert; */
+/* } */
+
+
+.ck-balloon-panel{z-index:9999 !important}
+
+.ck-content {
+  max-width: none;
+}
+
+.ck-content .text-align-left {
+  text-align: left;
+}
+
+.ck-content .text-align-center {
+  text-align: center;
+}
+
+.ck-content .text-align-right {
+  text-align: right;
+}
+
+.ck-content .text-align-justify {
+  text-align: justify;
+}
+
+/* Add these styles to your global CSS */
+.ck-content figure.image-align-left {
+  float: left;
+  margin-right: 1em;
+  max-width: 50%;
+}
+
+.ck-content figure.image-align-right {
+  float: right;
+  margin-left: 1em;
+  max-width: 50%;
+}
+
+.ck-content figure.image-align-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+.ck-content figure.image-style-align-left {
+  float: left;
+  margin-right: 1em;
+}
+
+.ck-content figure.image-style-align-right {
+  float: right;
+  margin-left: 1em;
+}
+
+.ck-content figure.image-style-align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Clear floats */
+.ck-content::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
