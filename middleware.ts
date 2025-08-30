@@ -1,21 +1,21 @@
-// import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
-// const isPrivateRoute = createRouteMatcher(["/dashboard(.*)?"])
+const isPrivateRoute = createRouteMatcher(["/dashboard(.*)?"])
 
-// export default clerkMiddleware(async (auth, request) => {
-//   if (isPrivateRoute(request)) {
-//     await auth.protect()
-//   }
-// })
-
-
-import { clerkMiddleware } from '@clerk/nextjs/server';
-
-// ✅ Middleware runs, but does nothing — effectively bypassing auth
 export default clerkMiddleware(async (auth, request) => {
-  // Auth check disabled
-  // await auth.protect(); // <-- disabled
-});
+  if (isPrivateRoute(request)) {
+    await auth.protect()
+  }
+})
+
+
+// import { clerkMiddleware } from '@clerk/nextjs/server';
+
+// // ✅ Middleware runs, but does nothing — effectively bypassing auth
+// export default clerkMiddleware(async (auth, request) => {
+//   // Auth check disabled
+//   await auth.protect(); // <-- disabled
+// });
 
 
 export const config = {

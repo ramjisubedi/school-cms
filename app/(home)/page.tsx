@@ -71,7 +71,7 @@ export default async function Home() {
     const imgdata = await imageGalleryData.json();
 
 // const data = await client.api.home.hero.$get();
-console.log('✅ Hero API Raw Response:', heroData);
+// console.log('✅ Hero API Raw Response:', heroData);
 
 
     return (
