@@ -37,10 +37,10 @@ const HeroSection = ({ data }: { data: HeroType }) => (
     <div className="container relative z-10 mx-auto pt-80 flex h-full max-w-6xl flex-col items-center justify-center px-4 text-center text-white">
       {data.title && (
         <h1 className="mb-6 text-3xl md:text-5xl font-bold tracking-tight">
-          {data.title}
+          {data.title} TITLE
         </h1>
       )}
-      <p className="mb-8 text-lg md:text-xl max-w-2xl">{data.subTitle}</p>
+      <p className="mb-8 text-lg md:text-xl max-w-2xl">{data.subTitle} SUB</p>
       <TriggerFormModal
         className="px-8 py-3 bg-[#d19c1f] hover:bg-[#ac811b] text-gray-50 transition-colors duration-300 rounded-lg font-medium"
         triggerText={data.buttonText ? `${data.buttonText} →` : undefined}
@@ -79,7 +79,7 @@ console.log('✅ Hero API Raw Response:', hero.data);
     return (
       <div className="min-h-screen bg-background">
         <Suspense fallback={<LoadingFallback />}>
-          {/* {hero?.data && <HeroSection data = {hero.data} />} */}
+          {hero?.data && <HeroSection data = {hero.data} />}
 
           <div className="mx-auto max-w-7xl px-4">
             <div className="space-y-32 py-16">
