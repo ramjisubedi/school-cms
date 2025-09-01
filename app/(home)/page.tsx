@@ -73,13 +73,13 @@ export default async function Home() {
     const imgdata = await imageGalleryData.json();
 
 // const data = await client.api.home.hero.$get();
-console.log('✅ Hero API Raw Response:', heroData);
+console.log('✅ Hero API Raw Response:', hero.data);
 
 
     return (
       <div className="min-h-screen bg-background">
         <Suspense fallback={<LoadingFallback />}>
-          {hero?.data && <HeroSection data = {hero.data} />}
+          {/* {hero?.data && <HeroSection data = {hero.data} />} */}
 
           <div className="mx-auto max-w-7xl px-4">
             <div className="space-y-32 py-16">
