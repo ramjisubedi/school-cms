@@ -24,11 +24,13 @@ const ErrorDisplay = ({ message }: { message: string }) => (
 );
 
 const HeroSection = ({ data }: { data: HeroType }) => (
+
   <div> 
+
   <section
     className="relative h-[700px] bg-gradient-to-r from-primary to-blue-600 bg-cover bg-center"
     style={{
-      backgroundImage: `url(https://res.cloudinary.com/dkklp7cvc/image/upload/v1756227591/uploads/tc9269kojw9vexey6pdp.jpg)`,
+      backgroundImage: `url(${data.backgroundImage})`,
     }}
   >
     <div className="absolute inset-0 bg-black/60" />
@@ -64,20 +66,20 @@ export default async function Home() {
       client.api.home["image-gallery"].$get(),
     ]);
 
-    const data = await heroData.json();
+    const hero = await heroData.json();
     const welcome = await welcomeData.json();
     const highlights = await highlightsData.json();
     const videoGallery = await videoGalleryData.json();
     const imgdata = await imageGalleryData.json();
 
 // const data = await client.api.home.hero.$get();
-// console.log('✅ Hero API Raw Response:', heroData);
+console.log('✅ Hero API Raw Response:', heroData);
 
 
     return (
       <div className="min-h-screen bg-background">
         <Suspense fallback={<LoadingFallback />}>
-          {heroData && <HeroSection data={heroData} />}
+          {hero?.data && <HeroSection data = {hero.data} />}
 
           <div className="mx-auto max-w-7xl px-4">
             <div className="space-y-32 py-16">

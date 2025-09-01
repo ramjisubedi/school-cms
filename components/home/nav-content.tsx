@@ -94,7 +94,7 @@ function NavigationLogo({ school, isScrolled }: NavigationLogoProps) {
       `}
       >
         <Image
-          src={school?.logo || "https://via.placeholder.com/150"}
+          src={school?.logo || "https://res.cloudinary.com/dkklp7cvc/image/upload/v1756652740/uploads/evfi4kgywiaefrlanejn.png"}
           alt={school?.logoLabel || "School Logo"}
           fill
           style={{ objectFit: "contain" }}
